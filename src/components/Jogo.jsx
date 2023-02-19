@@ -53,7 +53,7 @@ export default function Jogo({digitadas, erros, palavra, sortearPalavra}){
     <Palavra>
       {palavra.map( (letra) => (
         <span>{digitadas.includes(letra) ? letra : '_'}</span> 
-      ) )}
+      ))}
     </Palavra>
   </>
   )

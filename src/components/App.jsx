@@ -26,7 +26,13 @@ export default function App() {
         sortearPalavra={sortearPalavra}
       />
 
-      <Letras digitadas={digitadas} />
+      <Letras 
+        digitadas={digitadas} 
+        setDigitadas={setDigitadas}
+        palavra={palavra}
+        erros={erros}
+        setErros={setErros}
+      />
     </>
   )
 }
