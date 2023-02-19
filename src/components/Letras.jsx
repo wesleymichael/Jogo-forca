@@ -35,12 +35,13 @@ const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 export default function Letras({digitadas, setDigitadas, palavra, erros, setErros, status, setStatus, faltaAcertar, setFaltaAcertar}){
 
   function cliqueLetra(letra){
+    const maxErros = 6;
     setDigitadas([...digitadas, letra]);
 
     if( !palavra.includes(letra) ){
       const quantErros = erros+1;
       setErros(quantErros);
-      if(quantErros === 6){
+      if(quantErros === maxErros){
         setStatus('perdeu');
       }
     } else {

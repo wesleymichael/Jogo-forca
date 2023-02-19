@@ -1,42 +1,51 @@
 import styled from "styled-components";
 
-const Image = styled.img`
-  width: 400px;
-  height: 467px;
-  margin: 59px 0 0 38px;
-  object-fit: cover;
-`;
-const Button = styled.button`
-  width: 200px;
-  height: 60px;
-  background: #27AE60;
-  border-radius: 8px;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 20px;
-  color: #FFFFFF;
-  position: absolute;
-  top: 90px;
-  right: 60px;
-  cursor: pointer;
-`;
-const Palavra = styled.div`
-  height: 68px;
-  font-size: 50px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 53px;
-  top: 430px;
+const Div = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
 
-  span{
-    padding: 3px;
+  img{
+    width: 400px;
+    height: 467px;
+    margin: 59px 0 0 38px;
+    object-fit: cover;
   }
+
+  button{
+    width: 200px;
+    height: 60px;
+    background: #27AE60;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    color: #FFFFFF;
+    position: absolute;
+    top: 90px;
+    right: 60px;
+    cursor: pointer;
+  }
+
+  div{
+    height: 68px;
+    font-size: 50px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 53px;
+    top: 430px;
+
+    span{
+      padding: 3px;
+    }
+  }
+
 `
 const Ganhou = styled.span`
   color: green;
@@ -45,23 +54,22 @@ const Perdeu = styled.span`
   color: red;
 `
 
-
 export default function Jogo({digitadas, erros, palavra, sortearPalavra, status}){
 
   return (
-  <>
-    <Image 
+  <Div>
+    <img 
       src={`./assets/forca${erros}.png`}
       alt={`forca${erros}`}
       data-test="game-image"
     />
-    <Button onClick={sortearPalavra} data-test="choose-word">Escolher palavra</Button>
-    <Palavra data-test="word">
+    <button onClick={sortearPalavra} data-test="choose-word">Escolher palavra</button>
+    <div data-test="word">
       {palavra.map( (letra, i) => (
         <RenderizarLetra key={i} letra={letra} />
       ))}
-    </Palavra>
-  </>
+    </div>
+  </Div>
   )
 
   function RenderizarLetra({letra}){
