@@ -26,7 +26,6 @@ export default function App() {
     const letrasSemRepeticao = palavra.filter( (letra, i) => {
       return palavra.indexOf(letra) === i;
     });
-    console.log(palavra)
     setFaltaAcertar( letrasSemRepeticao.length );
   }
 

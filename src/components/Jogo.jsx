@@ -53,11 +53,12 @@ export default function Jogo({digitadas, erros, palavra, sortearPalavra, status}
     <Image 
       src={`./assets/forca${erros}.png`}
       alt={`forca${erros}`}
+      data-test="game-image"
     />
-    <Button onClick={sortearPalavra}>Escolher palavra</Button>
-    <Palavra>
-      {palavra.map( (letra) => (
-        <RenderizarLetra letra={letra} />
+    <Button onClick={sortearPalavra} data-test="choose-word">Escolher palavra</Button>
+    <Palavra data-test="word">
+      {palavra.map( (letra, i) => (
+        <RenderizarLetra key={i} letra={letra} />
       ))}
     </Palavra>
   </>

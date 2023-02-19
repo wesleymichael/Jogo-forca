@@ -54,7 +54,12 @@ export default function Letras({digitadas, setDigitadas, palavra, erros, setErro
   return(
     <Div>
       {alfabeto.map( letra => (
-        <button disabled={digitadas.includes(letra) || status !=='jogando'} onClick={() => cliqueLetra(letra) }>
+        <button 
+          key={letra} 
+          disabled={digitadas.includes(letra) || status !=='jogando'} 
+          onClick={() => cliqueLetra(letra) } 
+          data-test="letter"
+        >
           {letra}
         </button>
       ))}
