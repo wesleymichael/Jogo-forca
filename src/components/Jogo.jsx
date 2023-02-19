@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const Image = styled.img`
   width: 400px;
   height: 467px;
@@ -38,10 +37,16 @@ const Palavra = styled.div`
   span{
     padding: 3px;
   }
-
+`
+const Ganhou = styled.span`
+  color: green;
+`
+const Perdeu = styled.span`
+  color: red;
 `
 
-export default function Jogo({digitadas, erros, palavra, sortearPalavra}){
+
+export default function Jogo({digitadas, erros, palavra, sortearPalavra, status}){
 
   return (
   <>
@@ -52,9 +57,25 @@ export default function Jogo({digitadas, erros, palavra, sortearPalavra}){
     <Button onClick={sortearPalavra}>Escolher palavra</Button>
     <Palavra>
       {palavra.map( (letra) => (
-        <span>{digitadas.includes(letra) ? letra : '_'}</span> 
+        <RenderizarLetra letra={letra} />
       ))}
     </Palavra>
   </>
   )
+
+  function RenderizarLetra({letra}){
+    if(status === 'ganhou'){
+      return (
+        <Ganhou>{digitadas.includes(letra) || status !== 'jogando' ? letra : '_'}</Ganhou>
+      )
+    } else if (status === 'perdeu'){
+      return (
+        <Perdeu>{digitadas.includes(letra) || status !== 'jogando' ? letra : '_'}</Perdeu>
+      )
+    } else {
+      return (
+        <span>{digitadas.includes(letra) || status !== 'jogando' ? letra : '_'}</span>
+      )
+    }
+  }
 }

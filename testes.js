@@ -1,9 +1,9 @@
-const letra = "michael".split("")
+const palavra = 'aaaaal'.split("")
+totalAcertos();
 
-const digitadas = ['a', 'h', 'm'];
-
-const aux = letra.map( (l) =>{
-    return digitadas.includes(l) ? l : '_';
-})
-
-console.log(aux)
+function totalAcertos(){
+    const letrasSemRepeticao = palavra.filter( (letra, i) => {
+        return palavra.indexOf(letra) === i;
+    });
+    console.log(letrasSemRepeticao.length)
+}

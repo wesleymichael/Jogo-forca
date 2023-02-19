@@ -32,20 +32,29 @@ const Div = styled.div`
 
 const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-export default function Letras({digitadas, setDigitadas, palavra, erros, setErros}){
+export default function Letras({digitadas, setDigitadas, palavra, erros, setErros, status, setStatus, faltaAcertar, setFaltaAcertar}){
 
   function cliqueLetra(letra){
-    const novaArrayLetras = [...digitadas, letra];
-    setDigitadas(novaArrayLetras);
+    setDigitadas([...digitadas, letra]);
+
     if( !palavra.includes(letra) ){
-      setErros(erros+1);
+      const quantErros = erros+1;
+      setErros(quantErros);
+      if(quantErros === 6){
+        setStatus('perdeu');
+      }
+    } else {
+      setFaltaAcertar(faltaAcertar-1);
+      if(faltaAcertar-1 === 0){
+        setStatus('ganhou')
+      }
     }
   }
 
   return(
     <Div>
       {alfabeto.map( letra => (
-        <button disabled={digitadas.includes(letra)} onClick={() => cliqueLetra(letra) }>
+        <button disabled={digitadas.includes(letra) || status !=='jogando'} onClick={() => cliqueLetra(letra) }>
           {letra}
         </button>
       ))}

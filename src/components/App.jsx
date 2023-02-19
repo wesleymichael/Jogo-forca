@@ -9,12 +9,25 @@ export default function App() {
   const [digitadas, setDigitadas] = useState(alfabeto);
   const [erros, setErros] = useState(0);
   const [palavra, setPalavra] = useState([]);
+  const [faltaAcertar, setFaltaAcertar] = useState(0);
+  const [status, setStatus] = useState('');
 
   function sortearPalavra(){
     const aleatorio = Math.floor(Math.random()*palavras.length);
     setDigitadas([]);
     setErros(0);
-    setPalavra( palavras[aleatorio].split('') );
+    setStatus('jogando');
+    const arrayPalavra = palavras[aleatorio].split('');
+    setPalavra(arrayPalavra);
+    totalAcertos(arrayPalavra);
+  }
+
+  function totalAcertos(palavra){
+    const letrasSemRepeticao = palavra.filter( (letra, i) => {
+      return palavra.indexOf(letra) === i;
+    });
+    console.log(palavra)
+    setFaltaAcertar( letrasSemRepeticao.length );
   }
 
   return (
@@ -24,6 +37,7 @@ export default function App() {
         erros={erros}
         palavra={palavra}
         sortearPalavra={sortearPalavra}
+        status={status}
       />
 
       <Letras 
@@ -32,6 +46,10 @@ export default function App() {
         palavra={palavra}
         erros={erros}
         setErros={setErros}
+        status={status}
+        setStatus={setStatus}
+        faltaAcertar={faltaAcertar}
+        setFaltaAcertar={setFaltaAcertar}
       />
     </>
   )
