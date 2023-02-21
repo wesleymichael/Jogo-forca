@@ -1,6 +1,7 @@
 import { useState } from "react";
 import palavras from "../palavras"
 import { GlobalStyled } from "../styles/GlobalStyled";
+import Chute from "./Chute";
 import Jogo from "./Jogo";
 import Letras from "./Letras";
 
@@ -13,6 +14,7 @@ export default function App() {
   const [palavra, setPalavra] = useState([]);
   const [faltaAcertar, setFaltaAcertar] = useState(0);
   const [status, setStatus] = useState('');
+  const [chute, setChute] = useState('');
 
   function sortearPalavra(){
     const aleatorio = Math.floor(Math.random()*palavras.length);
@@ -41,6 +43,7 @@ export default function App() {
         sortearPalavra={sortearPalavra}
         status={status}
       />
+
       <Letras 
         digitadas={digitadas} 
         setDigitadas={setDigitadas}
@@ -51,6 +54,14 @@ export default function App() {
         setStatus={setStatus}
         faltaAcertar={faltaAcertar}
         setFaltaAcertar={setFaltaAcertar}
+      />
+
+      <Chute 
+        chute={chute}
+        setChute={setChute}
+        palavra={palavra}
+        status={status}
+        setStatus={setStatus}
       />
     </>
   )

@@ -17,8 +17,7 @@ const Div = styled.div`
     align-items: center;
     justify-content: center;
     margin: 6px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     color: #39739D;
     text-transform: uppercase;
     cursor: pointer;

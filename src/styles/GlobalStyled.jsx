@@ -1,8 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyled = createGlobalStyle`
-
-	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Roboto:wght@500;700&display=swap');
+	*{
+		font-family: 'Roboto', sans-serif;
+	}
 
 	html, body, div, span, applet, object, iframe,
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -46,5 +47,5 @@ export const GlobalStyled = createGlobalStyle`
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
-	}	
+	}
 `
