@@ -32,6 +32,7 @@ const Div = styled.div`
 
   div{
     height: 68px;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 50px;
     font-weight: 700;
     display: flex;

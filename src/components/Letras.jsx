@@ -13,11 +13,12 @@ const Div = styled.div`
     background: #E1ECF4;
     border: 1px solid #7AA7C7;
     border-radius: 3px;
-    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 6px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     color: #39739D;
     text-transform: uppercase;
     cursor: pointer;

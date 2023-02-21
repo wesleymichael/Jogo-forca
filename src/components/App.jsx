@@ -1,7 +1,9 @@
 import { useState } from "react";
 import palavras from "../palavras"
+import { GlobalStyled } from "../styles/GlobalStyled";
 import Jogo from "./Jogo";
 import Letras from "./Letras";
+
 
 export default function App() {
   const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -31,6 +33,7 @@ export default function App() {
 
   return (
     <>
+      <GlobalStyled />
       <Jogo 
         digitadas={digitadas}
         erros={erros}
@@ -38,7 +41,6 @@ export default function App() {
         sortearPalavra={sortearPalavra}
         status={status}
       />
-
       <Letras 
         digitadas={digitadas} 
         setDigitadas={setDigitadas}
