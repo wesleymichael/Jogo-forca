@@ -56,8 +56,8 @@ export default function Chute({chute, setChute, palavra, status, setStatus}){
   return(
     <Div>
       <span>Ja sei a palavra!</span>
-      <input value={chute} onChange={e => setChute(e.target.value)} />
-      <button onClick={chutar} disabled={status !=='jogando'} >Chutar</button>
+      <input value={chute} onChange={e => setChute(e.target.value)} data-test="guess-input" />
+      <button onClick={chutar} disabled={status !=='jogando'} data-test="guess-button" >Chutar</button>
     </Div>
   )
 }
