@@ -62,6 +62,7 @@ export default function App() {
         palavra={palavra}
         status={status}
         setStatus={setStatus}
+        setErros={setErros}
       />
     </>
   )

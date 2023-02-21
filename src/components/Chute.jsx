@@ -42,13 +42,14 @@ const Div = styled.div`
 `
 
 
-export default function Chute({chute, setChute, palavra, status, setStatus}){
+export default function Chute({chute, setChute, palavra, status, setStatus, setErros}){
   
   function chutar(){
     if(chute.toLowerCase() === palavra.join("")){
       setStatus('ganhou');
     } else {
       setStatus('perdeu');
+      setErros(6);
     }
     setChute('');
   }
